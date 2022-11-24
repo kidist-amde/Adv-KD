@@ -4,20 +4,20 @@ import torch
 import gdown
 import numpy as np
 import shutil
-from torch.util.data import DataLoader
+from torch.utils.data import DataLoader
 from dkd.utils.util import get_transforms
 
 UTKFACE_URL = "https://drive.google.com/uc?id=0BxYys69jI14kYVM3aVhKS1VhRUk" 
 
 
 class UTKFaceDataset(torch.utils.data.Dataset):
-    def __init__(self, root_dir="./data", train=True, download=False, transforms = None):
+    def __init__(self, root_dir="../data", train=True, download=False, transforms = None):
         self.transforms = transforms
         self.root_dir = root_dir
         if download:
             if not os.path.exists(self.root_dir):
                 os.makedirs(self.root_dir)
-            archive_path = os.path.join(self.root_dir,"utkface.tar.gz")
+            archive_path = os.path.join(self.root_dir,"UTKFace.tar.gz")
             gdown.download(UTKFACE_URL,quiet=False,output=archive_path)
             shutil.unpack_archive(archive_path,self.root_dir)
         all_files = os.listdir(os.path.join(self.root_dir,"UTKFace"))
@@ -55,10 +55,10 @@ class UTKFaceDataset(torch.utils.data.Dataset):
         
         # First get the image file at given index. something like image_file = self.image_files[...]
 
-        image_file = os.path.join(self.root_dir,self.file_names[index])
+        image_file = self.file_names[index]
         
         # Now you can get the path to the image. You can use os.path.join to join the self.root_dir and the image_file
-        image_path = os.path.join(self.root_dir,image_file)
+        image_path = os.path.join(self.root_dir,"UTKFace",image_file)
 
         # load the images 
         image = PIL.Image.open(image_path)          
@@ -81,6 +81,6 @@ class UTKFaceDataset(torch.utils.data.Dataset):
         return image, label
 def get_data(root_dir,image_size,batch_size):
     transforms = get_transforms(image_size)
-    dataset = UTKFaceDataset(root_dir,train=True,download=True,transforms=transforms)
+    dataset = UTKFaceDataset(root_dir,train=True,download=True,transforms=transforms["train"])
     dataloader = DataLoader(dataset, batch_size= batch_size, shuffle=True)
     return dataloader

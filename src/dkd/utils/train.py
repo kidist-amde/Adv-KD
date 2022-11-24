@@ -15,7 +15,7 @@ def train(model,dataloader,image_size,lr,epochs,device,start_epoch = 0,log_dir="
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
     run_name = "DDPM_UTKFace"
-    setup_logging(run_name)
+    setup_logging(log_dir,run_name)
     optimizer = optim.AdamW(model.parameters(), lr=lr)
     mse = nn.MSELoss()
     diffusion = Diffusion(image_size=image_size, device=device)

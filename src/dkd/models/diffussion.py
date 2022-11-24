@@ -1,7 +1,7 @@
 import torch
 import logging
 from tqdm.auto import tqdm
-logging.basicConfig(format= '%(asctime)s - %(levelname)s:(message)s',level = logging.INFO,datafmt="%I:%M%S")
+logging.basicConfig(format= '%(asctime)s - %(levelname)s:(message)s',level = logging.INFO,datefmt="%I:%M%S")
 
 class Diffusion:
       # use the same timestep and beta value as the orginal paper and fair resolution for the image due to compuational limitation 
