@@ -24,6 +24,7 @@ def get_transforms(image_size):
 # setting up the folder fro saving the model and the result 
 def setup_logging(log_dir,run_name):
     os.makedirs(os.path.join(log_dir,"models"), exist_ok=True)
+    os.makedirs(os.path.join(log_dir,"logs"), exist_ok=True)
     os.makedirs(os.path.join(log_dir,"results"), exist_ok=True)
     os.makedirs(os.path.join(log_dir,"models", run_name), exist_ok=True)
     os.makedirs(os.path.join(log_dir,"results", run_name), exist_ok=True)

@@ -19,7 +19,7 @@ def train(model,dataloader,image_size,lr,epochs,device,start_epoch = 0,log_dir="
     optimizer = optim.AdamW(model.parameters(), lr=lr)
     mse = nn.MSELoss()
     diffusion = Diffusion(image_size=image_size, device=device)
-    logger = SummaryWriter(os.path.join("runs", run_name))
+    logger = SummaryWriter(os.path.join(log_dir,"runs", run_name))
     l = len(dataloader)
     # we follow the algorithmn of the DDPM paper 
     for epoch in range(start_epoch,epochs):
