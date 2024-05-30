@@ -5,3 +5,9 @@ Diffusion Probabilistic Models (DPMs) have emerged as a powerful class of deep g
 Our approach combines diffusion models with generative adversarial networks (GANs) through knowledge distillation, enabling more efficient training and evaluation. By utilizing a pre-trained diffusion model as a teacher model, we train a student model through adversarial learning, employing layerwise transformations for denoising and submodules for predicting the teacher model's output at various points in time. This integration significantly reduces the number of parameters and denoising steps required, leading to improved sampling speed at test time.
 
 We validate our method with extensive experiments, demonstrating comparable performance with reduced computational requirements compared to existing approaches. By enabling the deployment of diffusion models on resource-constrained devices, our research mitigates their computational burden and paves the way for wider accessibility and practical use across the research community and end-users.
+
+# Citation
+If you find this repo useful, please consider citing our work:
+```
+
+```
