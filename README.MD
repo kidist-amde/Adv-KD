@@ -9,5 +9,11 @@ We validate our method with extensive experiments, demonstrating comparable perf
 # Citation
 If you find this repo useful, please consider citing our work:
 ```
-
+@article{amde2024adv,
+  title={Adv-KD: Adversarial Knowledge Distillation for Faster Diffusion Sampling},
+  author={Amde Mekonnen, Kidist and Dall'Asen, Nicola and Rota, Paolo},
+  journal={arXiv e-prints},
+  pages={arXiv--2405},
+  year={2024}
+}
 ```
